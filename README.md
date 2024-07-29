@@ -1,44 +1,30 @@
-# Bitcoin Price Bot
+# Bitcoin Action Bot
 
-This is a Telegram bot that monitors the Bitcoin price using Binance's API and reports price changes along with candlestick patterns in a Telegram chat.
+This is a Telegram bot designed to monitor Bitcoin price and provide updates on price changes and candlestick patterns using Binance's API.
 
 ## Features
 
-- **Price Monitoring**: Continuously monitors Bitcoin price and calculates percentage changes.
+- **Price Monitoring**: Continuously tracks Bitcoin prices and calculates percentage changes.
 - **Severity Reporting**: Reports the severity of price changes based on predefined thresholds.
-- **Candlestick Patterns**: Identifies and reports candlestick patterns from the recent data.
+- **Candlestick Patterns**: Identifies and reports various candlestick patterns from recent data.
 
 ## Installation
 
-1. Clone the repository:
+To install and run this bot on your Ubuntu server, follow these steps:
+
+1. **Open your terminal.**
+
+2. **Run the installation script**:
 
     ```bash
-    git clone https://github.com/yourusername/bitcoin-price-bot.git
+    curl -sL https://raw.githubusercontent.com/shantiya401/btc_action_bot/main/install.sh | bash
     ```
 
-2. Install the required Python packages:
-
-    ```bash
-    pip install pyTelegramBotAPI requests pandas ta
-    ```
-
-3. Replace `YOUR_TELEGRAM_API_TOKEN` in the script with your actual Telegram bot API token.
-
-## Usage
-
-1. Run the bot script:
-
-    ```bash
-    python bot.py
-    ```
-
-2. Start the bot by sending the `/start` command in your Telegram chat.
+3. **Enter your Telegram API Token** when prompted.
 
 ## Configuration
 
-- **TELEGRAM_API_TOKEN**: Your Telegram bot token.
-- **BINANCE_API_URL**: API URL for fetching Bitcoin price.
-- **BINANCE_CANDLESTICK_API_URL**: API URL for fetching candlestick data.
+- **TELEGRAM_API_TOKEN**: Replace `YOUR_TELEGRAM_API_TOKEN` in the script with your Telegram bot token.
 
 ## License
 
