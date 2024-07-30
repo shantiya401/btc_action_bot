@@ -9,6 +9,19 @@ if [[ -z "$TELEGRAM_API_TOKEN" ]]; then
   exit 1
 fi
 
+# Update package list and install required packages
+echo "Updating package list..."
+sudo apt-get update
+
+echo "Installing required packages..."
+sudo apt-get install -y python3 python3-pip git
+
+# Check if the btc_action_bot directory already exists and remove it
+if [ -d "btc_action_bot" ]; then
+  echo "Removing existing btc_action_bot directory..."
+  sudo rm -rf btc_action_bot
+fi
+
 # Clone the repository
 echo "Cloning the repository..."
 git clone https://github.com/shantiya401/btc_action_bot.git
@@ -28,13 +41,6 @@ fi
 
 # Display success message
 echo -e "\033[1;33mSuccessfully updated the bot script with the provided Telegram API Token.\033[0m"
-
-# Update package list and install required packages
-echo "Updating package list..."
-sudo apt-get update
-
-echo "Installing required packages..."
-sudo apt-get install -y python3 python3-pip git
 
 # Install Python dependencies
 echo "Installing Python dependencies..."
