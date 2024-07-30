@@ -7,6 +7,12 @@ sudo apt-get update
 echo "Installing required packages..."
 sudo apt-get install -y python3 python3-pip git
 
+# Remove the existing directory if it exists
+if [ -d "btc_action_bot" ]; then
+  echo "Removing existing btc_action_bot directory..."
+  rm -rf btc_action_bot
+fi
+
 # Clone the repository
 echo "Cloning the repository..."
 git clone https://github.com/shantiya401/btc_action_bot.git
@@ -37,6 +43,8 @@ if grep -q "YOUR_TELEGRAM_API_TOKEN" bot.py; then
   exit 1
 fi
 
-# Run the bot
-echo "Starting the bot..."
-python3 bot.py
+# Run the bot using nohup
+echo "Starting the bot using nohup..."
+nohup python3 bot.py &
+
+echo "Bot is running in the background. You can log out now."
