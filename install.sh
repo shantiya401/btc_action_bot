@@ -21,9 +21,21 @@ pip3 install pyTelegramBotAPI requests pandas ta
 # Request for Telegram API Token
 read -p "Please enter your Telegram API Token: " TELEGRAM_API_TOKEN
 
+# Check if TELEGRAM_API_TOKEN is provided
+if [[ -z "$TELEGRAM_API_TOKEN" ]]; then
+  echo "Error: No Telegram API Token provided."
+  exit 1
+fi
+
 # Replace placeholder with the user-provided token in the Python script
 echo "Updating the bot script with the provided Telegram API Token..."
 sed -i "s/YOUR_TELEGRAM_API_TOKEN/$TELEGRAM_API_TOKEN/" bot.py
+
+# Verify token replacement
+if grep -q "YOUR_TELEGRAM_API_TOKEN" bot.py; then
+  echo "Error: Failed to update the bot script with the provided Telegram API Token."
+  exit 1
+fi
 
 # Run the bot
 echo "Starting the bot..."
